@@ -3,6 +3,9 @@ using HumanResourceApp.Contracts;
 using HumanResourceApp.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
+using System;
+using System.Collections.Generic;
 
 namespace HumanResourcesApp.Controllers
 {
@@ -24,6 +27,7 @@ namespace HumanResourcesApp.Controllers
         public async Task<IActionResult> GetPersonByKey (int businessEntityID)
         {
             IEnumerable<Person> persons = await _PersonRepository.GetPersonByKey(businessEntityID);
+            CalculateAge(persons);
             return Ok(persons);
         }
 
@@ -41,6 +45,7 @@ namespace HumanResourcesApp.Controllers
         {
             var results = new List<Person>();
             IEnumerable<Person> persons = await _PersonRepository.GetPersonByKey(businessEntityID);
+            CalculateAge(persons);
             var personPhoneNumber = new List<PersonPhone>();
             foreach (var phoneNumber in persons)
             {
@@ -49,6 +54,20 @@ namespace HumanResourcesApp.Controllers
                 results.Add(phoneNumber);
             }
             return Ok(results);
+        }
+
+        public int CalculateAge(IEnumerable<Person> persons)
+        {
+            Person person = new Person();
+            int currentAge = 0;
+
+            foreach (Person i in persons)
+            {
+                i.Age = DateTime.Now.Year - i.Birthdate.Year;
+                currentAge = i.Age;
+            }
+
+            return currentAge;
         }
 
     }

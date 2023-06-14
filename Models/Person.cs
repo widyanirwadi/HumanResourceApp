@@ -13,6 +13,9 @@
         public int EmailPromotion { get; set; }
         public Guid rowguid { get; set; }
         public DateTime ModifiedDate { get; set; }
+        public DateTime Birthdate { get; set; }
+        public int Age { get; set; }
+        public int FYear { get; set; }
         public ICollection<PersonPhone> PersonPhones { get; set; }
     }
 
