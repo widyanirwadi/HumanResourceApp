@@ -11,6 +11,7 @@ namespace HumanResourcesApp
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddSingleton<DbContext>();
             builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

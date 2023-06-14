@@ -9,11 +9,12 @@ namespace HumanResourceApp.Repository
     public class DepartmentRepository : IDepartmentRepository
     {
         private readonly DbContext _dbContext;
+
         public DepartmentRepository(DbContext dbContext)
         {
             _dbContext = dbContext;
         }
-
+        
         public async Task<IEnumerable<Department>> GetDepartmentByKey(int departmentID)
         {
             using (IDbConnection connection = _dbContext.CreateConnection())

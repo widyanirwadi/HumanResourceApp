@@ -1,8 +1,8 @@
-﻿using HumanResourcesApp.Models;
+﻿using HumanResourceApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace HumanResourcesApp.Controllers
+namespace HumanResourcesApps.Controllers
 {
     public class HomeController : Controller
     {

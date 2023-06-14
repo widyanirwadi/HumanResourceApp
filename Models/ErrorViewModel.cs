@@ -1,4 +1,4 @@
-namespace HumanResourcesApp.Models
+namespace HumanResourceApp.Models
 {
     public class ErrorViewModel
     {

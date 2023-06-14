@@ -2,6 +2,7 @@
 using HumanResourceApp.Models;
 using HumanResourceApp.Context;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace HumanResourceApp.Controllers
 {
@@ -26,5 +27,6 @@ namespace HumanResourceApp.Controllers
             IEnumerable<Department> departments = await _DepartmentRepository.GetDepartmentByKey(departmentID);
             return Ok(departments);
         }
+
     }
 }
